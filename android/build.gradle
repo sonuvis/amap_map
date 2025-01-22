@@ -22,7 +22,10 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    namespace = "com.amap.flutter.map"
+    if (project.android.hasProperty('namespace')) { 
+        namespace 'com.amap.flutter.map'
+    }
+    
     compileSdkVersion 35
 
     defaultConfig {
