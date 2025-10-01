@@ -27,30 +27,30 @@ public class AMapFlutterMapPlugin implements
     public AMapFlutterMapPlugin() {
     }
 
-    public static void registerWith(PluginRegistry.Registrar registrar) {
-        LogUtil.i(CLASS_NAME, "registerWith=====>");
+    // public static void registerWith(PluginRegistry.Registrar registrar) {
+    //     LogUtil.i(CLASS_NAME, "registerWith=====>");
 
-        final Activity activity = registrar.activity();
-        if (activity == null) {
-            LogUtil.w(CLASS_NAME, "activity is null!!!");
-            return;
-        }
-        if (activity instanceof LifecycleOwner) {
-            registrar
-                    .platformViewRegistry()
-                    .registerViewFactory(
-                            VIEW_TYPE,
-                            new AMapPlatformViewFactory(
-                                    registrar.messenger(),
-                                    () -> ((LifecycleOwner) activity).getLifecycle()));
-        } else {
-            registrar
-                    .platformViewRegistry()
-                    .registerViewFactory(
-                            VIEW_TYPE,
-                            new AMapPlatformViewFactory(registrar.messenger(), new ProxyLifecycleProvider(activity)));
-        }
-    }
+    //     final Activity activity = registrar.activity();
+    //     if (activity == null) {
+    //         LogUtil.w(CLASS_NAME, "activity is null!!!");
+    //         return;
+    //     }
+    //     if (activity instanceof LifecycleOwner) {
+    //         registrar
+    //                 .platformViewRegistry()
+    //                 .registerViewFactory(
+    //                         VIEW_TYPE,
+    //                         new AMapPlatformViewFactory(
+    //                                 registrar.messenger(),
+    //                                 () -> ((LifecycleOwner) activity).getLifecycle()));
+    //     } else {
+    //         registrar
+    //                 .platformViewRegistry()
+    //                 .registerViewFactory(
+    //                         VIEW_TYPE,
+    //                         new AMapPlatformViewFactory(registrar.messenger(), new ProxyLifecycleProvider(activity)));
+    //     }
+    // }
 
     // FlutterPlugin
 
