@@ -39,7 +39,7 @@ import io.flutter.embedding.engine.loader.FlutterLoader;
  * @since
  */
 public class ConvertUtil {
-
+    private static final FlutterLoader flutterLoader = new FlutterLoader();
     private static final String CLASS_NAME = "ConvertUtil";
     private static final int[] LocationTypeMap = new int[]{MyLocationStyle.LOCATION_TYPE_SHOW, MyLocationStyle.LOCATION_TYPE_FOLLOW, MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE};
     public static float density;
