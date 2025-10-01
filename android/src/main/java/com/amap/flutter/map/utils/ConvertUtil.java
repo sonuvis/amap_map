@@ -30,7 +30,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.flutter.view.FlutterMain;
+import io.flutter.embedding.engine.loader.FlutterLoader;
+private static final FlutterLoader flutterLoader = new FlutterLoader();
 
 /**
  * @author whm
@@ -396,15 +397,15 @@ public class ConvertUtil {
             case "fromAsset":
                 if (data.size() == 2) {
                     return BitmapDescriptorFactory.fromAsset(
-                            FlutterMain.getLookupKeyForAsset(toString(data.get(1))));
+                            flutterLoader.getLookupKeyForAsset(toString(data.get(1))));
                 } else {
                     return BitmapDescriptorFactory.fromAsset(
-                            FlutterMain.getLookupKeyForAsset(toString(data.get(1)), toString(data.get(2))));
+                            flutterLoader.getLookupKeyForAsset(toString(data.get(1)), toString(data.get(2))));
                 }
             case "fromAssetImage":
                 if (data.size() == 3) {
                     return BitmapDescriptorFactory.fromAsset(
-                            FlutterMain.getLookupKeyForAsset(toString(data.get(1))));
+                            flutterLoader.getLookupKeyForAsset(toString(data.get(1))));
                 } else {
                     throw new IllegalArgumentException(
                             "'fromAssetImage' Expected exactly 3 arguments, got: " + data.size());
