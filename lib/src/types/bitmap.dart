@@ -6,9 +6,8 @@ import 'dart:async' show Future;
 import 'dart:typed_data' show Uint8List;
 import 'dart:ui';
 
-import 'package:x_amap_base/x_amap_base.dart';
-import 'package:flutter/material.dart'
-    show ImageConfiguration, AssetImage, AssetBundleImageKey;
+import 'package:x_amap_base/amap_flutter_base.dart';
+import 'package:flutter/material.dart' show ImageConfiguration, AssetImage, AssetBundleImageKey;
 import 'package:flutter/services.dart' show AssetBundle;
 
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -48,8 +47,7 @@ class BitmapDescriptor {
   static const double hueRose = 330.0;
 
   /// 创建默认的marker 图标的 bitmap 描述信息对象.
-  static const BitmapDescriptor defaultMarker =
-      BitmapDescriptor._(<dynamic>['defaultMarker']);
+  static const BitmapDescriptor defaultMarker = BitmapDescriptor._(<dynamic>['defaultMarker']);
 
   /// 创建引用默认着色的BitmapDescriptor
   static BitmapDescriptor defaultMarkerWithHue(double hue) {
@@ -76,11 +74,8 @@ class BitmapDescriptor {
     } else if (hue == hueRose) {
       filename = "ROSE.png";
     }
-    return BitmapDescriptor._(<dynamic>[
-      'fromAssetImage',
-      "packages/amap_map/res/$filename",
-      AMapUtil.devicePixelRatio
-    ]);
+    return BitmapDescriptor._(
+        <dynamic>['fromAssetImage', "packages/amap_map/res/$filename", AMapUtil.devicePixelRatio]);
   }
 
   ///根据输入的icon路径[iconPath]创建[BitmapDescriptor]
@@ -112,10 +107,8 @@ class BitmapDescriptor {
         configuration.devicePixelRatio,
       ]);
     }
-    final AssetImage assetImage =
-        AssetImage(assetName, package: package, bundle: bundle);
-    final AssetBundleImageKey assetBundleImageKey =
-        await assetImage.obtainKey(configuration);
+    final AssetImage assetImage = AssetImage(assetName, package: package, bundle: bundle);
+    final AssetBundleImageKey assetBundleImageKey = await assetImage.obtainKey(configuration);
     final Size? size = configuration.size;
     return BitmapDescriptor._(<dynamic>[
       'fromAssetImage',

@@ -5,7 +5,7 @@
 import 'package:amap_map/src/compatibility/color_extensions.dart';
 import 'package:flutter/foundation.dart' show listEquals;
 import 'package:flutter/material.dart' show Color;
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'base_overlay.dart';
 import 'polyline.dart';
 
@@ -101,15 +101,7 @@ class Polygon extends BaseOverlay {
   }
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
-        id,
-        points,
-        strokeWidth,
-        strokeColor,
-        fillColor,
-        visible,
-        joinType
-      ]);
+  int get hashCode => Object.hashAll(<Object?>[id, points, strokeWidth, strokeColor, fillColor, visible, joinType]);
 
   dynamic _pointsToJson() {
     final List<dynamic> result = <dynamic>[];
@@ -125,6 +117,6 @@ Map<String, Polygon> keyByPolygonId(Iterable<Polygon> polylines) {
   if (polylines == null) {
     return <String, Polygon>{};
   }
-  return Map<String, Polygon>.fromEntries(polylines.map((Polygon polyline) =>
-      MapEntry<String, Polygon>(polyline.id, polyline.clone())));
+  return Map<String, Polygon>.fromEntries(
+      polylines.map((Polygon polyline) => MapEntry<String, Polygon>(polyline.id, polyline.clone())));
 }

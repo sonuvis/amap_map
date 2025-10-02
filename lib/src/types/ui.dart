@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import 'dart:ui' show Color;
 import 'package:amap_map/src/compatibility/color_extensions.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'package:amap_map/amap_map.dart';
 
 /// 地图类型
@@ -71,12 +71,8 @@ class MinMaxZoomPreference {
   /// 缩放级别范围为[3, 20]，超出范围取边界值
   ///
   const MinMaxZoomPreference(double minZoom, double maxZoom)
-      : minZoom = ((minZoom < 3 ? 3 : minZoom) > (maxZoom > 20 ? 20 : maxZoom)
-            ? maxZoom
-            : minZoom),
-        maxZoom = ((minZoom < 3 ? 3 : minZoom) > (maxZoom > 20 ? 20 : maxZoom)
-            ? minZoom
-            : maxZoom);
+      : minZoom = ((minZoom < 3 ? 3 : minZoom) > (maxZoom > 20 ? 20 : maxZoom) ? maxZoom : minZoom),
+        maxZoom = ((minZoom < 3 ? 3 : minZoom) > (maxZoom > 20 ? 20 : maxZoom) ? minZoom : maxZoom);
 
   /// 最小zoomLevel
   final double? minZoom;
@@ -85,8 +81,7 @@ class MinMaxZoomPreference {
   final double? maxZoom;
 
   /// 高德地图默认zoomLevel的范围.
-  static const MinMaxZoomPreference defaultPreference =
-      MinMaxZoomPreference(3, 20);
+  static const MinMaxZoomPreference defaultPreference = MinMaxZoomPreference(3, 20);
 
   /// JSON序列化.
   dynamic toJson() => <dynamic>[minZoom, maxZoom];
@@ -195,8 +190,7 @@ class MyLocationStyleOptions {
   }
 
   @override
-  int get hashCode => Object.hashAll(
-      <Object?>[enabled, circleFillColor, circleStrokeColor, icon]);
+  int get hashCode => Object.hashAll(<Object?>[enabled, circleFillColor, circleStrokeColor, icon]);
 }
 
 ///地图自定义样式
@@ -253,11 +247,9 @@ class CustomStyleOptions {
   }
 
   @override
-  int get hashCode =>
-      Object.hashAll(<Object?>[enabled, styleData, styleExtraData]);
+  int get hashCode => Object.hashAll(<Object?>[enabled, styleData, styleExtraData]);
 
   CustomStyleOptions clone() {
-    return CustomStyleOptions(enabled,
-        styleData: styleData, styleExtraData: styleExtraData);
+    return CustomStyleOptions(enabled, styleData: styleData, styleExtraData: styleExtraData);
   }
 }

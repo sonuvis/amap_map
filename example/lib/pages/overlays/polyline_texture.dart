@@ -1,7 +1,7 @@
 import 'package:amap_map/amap_map.dart';
 import 'package:flutter/material.dart';
 
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 
 class PolylineTextureDemoPage extends StatefulWidget {
   const PolylineTextureDemoPage();
@@ -33,8 +33,7 @@ class _State extends State<PolylineTextureDemoPage> {
   void _add() {
     final Polyline polyline = Polyline(
         width: 20,
-        customTexture:
-            BitmapDescriptor.fromIconPath('assets/texture_green.png'),
+        customTexture: BitmapDescriptor.fromIconPath('assets/texture_green.png'),
         joinType: JoinType.round,
         points: _createPoints());
 
@@ -76,8 +75,7 @@ class _State extends State<PolylineTextureDemoPage> {
               child: TextButton(
                 onPressed: _add,
                 style: ButtonStyle(
-                  shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
+                  shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                   //文字颜色
                   foregroundColor: WidgetStateProperty.all(Colors.white),
                   //水波纹颜色

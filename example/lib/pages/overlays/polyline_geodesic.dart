@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 
 class PolylineGeodesicDemoPage extends StatefulWidget {
   const PolylineGeodesicDemoPage();
@@ -39,18 +39,14 @@ class _State extends State<PolylineGeodesicDemoPage> {
   }
 
   void _add() {
-    final Polyline polyline = Polyline(
-        color: colors[++colorsIndex % colors.length],
-        width: 10,
-        geodesic: true,
-        points: _createPoints());
+    final Polyline polyline =
+        Polyline(color: colors[++colorsIndex % colors.length], width: 10, geodesic: true, points: _createPoints());
 
     setState(() {
       _polylines[polyline.id] = polyline;
     });
     //移动到合适的范围
-    LatLngBounds bound =
-        LatLngBounds(southwest: LatLng(25.0, 70.0), northeast: LatLng(45, 117));
+    LatLngBounds bound = LatLngBounds(southwest: LatLng(25.0, 70.0), northeast: LatLng(45, 117));
     CameraUpdate update = CameraUpdate.newLatLngBounds(bound, 10);
     _controller?.moveCamera(update);
   }
@@ -88,8 +84,7 @@ class _State extends State<PolylineGeodesicDemoPage> {
               child: TextButton(
                 onPressed: _add,
                 style: ButtonStyle(
-                  shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
+                  shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
                   //文字颜色
                   foregroundColor: WidgetStateProperty.all(Colors.white),
                   //水波纹颜色

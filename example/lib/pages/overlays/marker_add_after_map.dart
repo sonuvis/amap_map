@@ -1,5 +1,5 @@
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'package:flutter/material.dart';
 
 class MarkerAddAfterMapPage extends StatefulWidget {
@@ -16,8 +16,7 @@ class _BodyState extends State<MarkerAddAfterMapPage> {
   LatLng _currentLatLng = defaultPosition;
   //添加一个marker
   void _addMarker() {
-    final LatLng markerPosition =
-        LatLng(_currentLatLng.latitude, _currentLatLng.longitude + 2 / 1000);
+    final LatLng markerPosition = LatLng(_currentLatLng.latitude, _currentLatLng.longitude + 2 / 1000);
     final Marker marker = Marker(
       position: markerPosition,
       //使用默认hue的方式设置Marker的图标
@@ -35,15 +34,13 @@ class _BodyState extends State<MarkerAddAfterMapPage> {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+        shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
         //文字颜色
         foregroundColor: WidgetStateProperty.all(Colors.white),
         //水波纹颜色
         overlayColor: WidgetStateProperty.all(Colors.blueAccent),
         //背景颜色
-        backgroundColor:
-            WidgetStateProperty.resolveWith((Set<WidgetState> states) {
+        backgroundColor: WidgetStateProperty.resolveWith((Set<WidgetState> states) {
           //设置按下时的背景颜色
           if (states.contains(WidgetState.pressed)) {
             return Colors.blueAccent;

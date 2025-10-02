@@ -3,7 +3,7 @@ import 'package:amap_map_example/widgets/amap_switch_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 
 class AllMapConfigDemoPage extends StatefulWidget {
   const AllMapConfigDemoPage({super.key});
@@ -57,8 +57,7 @@ class _MapUiBodyState extends State<AllMapConfigDemoPage> {
   final CustomStyleOptions _customStyleOptions = CustomStyleOptions(false);
 
   ///自定义定位小蓝点
-  final MyLocationStyleOptions _myLocationStyleOptions =
-      MyLocationStyleOptions(false);
+  final MyLocationStyleOptions _myLocationStyleOptions = MyLocationStyleOptions(false);
   @override
   void initState() {
     super.initState();
@@ -68,10 +67,8 @@ class _MapUiBodyState extends State<AllMapConfigDemoPage> {
   void _loadCustomData() async {
     ByteData styleByteData = await rootBundle.load('assets/style.data');
     _customStyleOptions.styleData = styleByteData.buffer.asUint8List();
-    ByteData styleExtraByteData =
-        await rootBundle.load('assets/style_extra.data');
-    _customStyleOptions.styleExtraData =
-        styleExtraByteData.buffer.asUint8List();
+    ByteData styleExtraByteData = await rootBundle.load('assets/style_extra.data');
+    _customStyleOptions.styleExtraData = styleExtraByteData.buffer.asUint8List();
   }
 
   @override
@@ -259,8 +256,7 @@ class _MapUiBodyState extends State<AllMapConfigDemoPage> {
           children: <Widget>[
             // Text('定位小蓝点', style: TextStyle(fontWeight: FontWeight.w600)),
             AMapSwitchButton(
-              label: const Text('定位小蓝点',
-                  style: TextStyle(fontWeight: FontWeight.w600)),
+              label: const Text('定位小蓝点', style: TextStyle(fontWeight: FontWeight.w600)),
               defaultValue: _myLocationStyleOptions.enabled,
               onSwitchChanged: (value) => <void>{
                 setState(() {
@@ -381,11 +377,8 @@ class _MapUiBodyState extends State<AllMapConfigDemoPage> {
 
   //移动地图中心点到首开广场
   void _moveCameraToShoukai() {
-    _controller.moveCamera(CameraUpdate.newCameraPosition(const CameraPosition(
-        target: LatLng(39.993306, 116.473004),
-        zoom: 18,
-        tilt: 30,
-        bearing: 30)));
+    _controller.moveCamera(CameraUpdate.newCameraPosition(
+        const CameraPosition(target: LatLng(39.993306, 116.473004), zoom: 18, tilt: 30, bearing: 30)));
   }
 
   void _onLocationChanged(AMapLocation location) {

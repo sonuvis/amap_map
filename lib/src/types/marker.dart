@@ -4,7 +4,7 @@
 
 import 'dart:ui' show Offset;
 import 'package:amap_map/src/types/base_overlay.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'bitmap.dart';
 
 /// Marker拖动回调
@@ -97,12 +97,7 @@ class Marker extends BaseOverlay {
         // ignore: unnecessary_null_comparison
         anchor = (anchor == null
             ? const Offset(0.5, 1.0)
-            : ((anchor.dx < 0 ||
-                    anchor.dx > 1 ||
-                    anchor.dy < 0 ||
-                    anchor.dy > 1)
-                ? const Offset(0.5, 1.0)
-                : anchor)),
+            : ((anchor.dx < 0 || anchor.dx > 1 || anchor.dy < 0 || anchor.dy > 1) ? const Offset(0.5, 1.0) : anchor)),
         super();
 
   /// 透明度
@@ -260,6 +255,6 @@ class Marker extends BaseOverlay {
 }
 
 Map<String, Marker> keyByMarkerId(Iterable<Marker> markers) {
-  return Map<String, Marker>.fromEntries(markers.map(
-      (Marker marker) => MapEntry<String, Marker>(marker.id, marker.clone())));
+  return Map<String, Marker>.fromEntries(
+      markers.map((Marker marker) => MapEntry<String, Marker>(marker.id, marker.clone())));
 }

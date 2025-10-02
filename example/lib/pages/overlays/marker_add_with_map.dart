@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'package:flutter/material.dart';
 
 class MarkerAddWithMapPage extends StatefulWidget {
@@ -16,8 +16,8 @@ class _BodyState extends State<MarkerAddWithMapPage> {
   @override
   Widget build(BuildContext context) {
     for (int i = 0; i < 10; i++) {
-      LatLng position = LatLng(mapCenter.latitude + sin(i * pi / 12.0) / 20.0,
-          mapCenter.longitude + cos(i * pi / 12.0) / 20.0);
+      LatLng position =
+          LatLng(mapCenter.latitude + sin(i * pi / 12.0) / 20.0, mapCenter.longitude + cos(i * pi / 12.0) / 20.0);
       Marker marker = Marker(position: position);
       _initMarkerMap[marker.id] = marker;
     }

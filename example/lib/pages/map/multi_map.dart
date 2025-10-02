@@ -1,5 +1,5 @@
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'package:flutter/material.dart';
 
 class MultiMapDemoPage extends StatefulWidget {
@@ -23,8 +23,7 @@ class _MultiMapDemoState extends State<MultiMapDemoPage> {
           //第二个地图指定初始位置为上海
           Expanded(
               child: AMapWidget(
-            initialCameraPosition:
-                CameraPosition(target: LatLng(31.230378, 121.473658)),
+            initialCameraPosition: CameraPosition(target: LatLng(31.230378, 121.473658)),
           )),
         ],
       ),

@@ -6,7 +6,7 @@ import 'package:amap_map/src/compatibility/color_extensions.dart';
 import 'package:amap_map/src/types/bitmap.dart';
 import 'package:flutter/foundation.dart' show listEquals;
 import 'package:flutter/material.dart' show Color;
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'base_overlay.dart';
 
 /// 虚线类型
@@ -187,18 +187,8 @@ class Polyline extends BaseOverlay {
   }
 
   @override
-  int get hashCode => Object.hashAll(<Object?>[
-        id,
-        points,
-        width,
-        visible,
-        geodesic,
-        alpha,
-        dashLineType,
-        capType,
-        joinType,
-        color
-      ]);
+  int get hashCode =>
+      Object.hashAll(<Object?>[id, points, width, visible, geodesic, alpha, dashLineType, capType, joinType, color]);
 }
 
 Map<String, Polyline> keyByPolylineId(Iterable<Polyline> polylines) {
@@ -206,6 +196,6 @@ Map<String, Polyline> keyByPolylineId(Iterable<Polyline> polylines) {
   if (polylines == null) {
     return <String, Polyline>{};
   }
-  return Map<String, Polyline>.fromEntries(polylines.map((Polyline polyline) =>
-      MapEntry<String, Polyline>(polyline.id, polyline.clone())));
+  return Map<String, Polyline>.fromEntries(
+      polylines.map((Polyline polyline) => MapEntry<String, Polyline>(polyline.id, polyline.clone())));
 }

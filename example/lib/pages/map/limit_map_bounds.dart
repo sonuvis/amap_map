@@ -1,5 +1,5 @@
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'package:flutter/material.dart';
 
 class LimitMapBoundsPage extends StatefulWidget {
@@ -13,9 +13,7 @@ class _BodyState extends State<LimitMapBoundsPage> {
   @override
   Widget build(BuildContext context) {
     final AMapWidget amap = AMapWidget(
-      limitBounds: LatLngBounds(
-          southwest: LatLng(39.83309, 116.290176),
-          northeast: LatLng(39.99951, 116.501663)),
+      limitBounds: LatLngBounds(southwest: LatLng(39.83309, 116.290176), northeast: LatLng(39.99951, 116.501663)),
     );
     return Container(
       child: amap,

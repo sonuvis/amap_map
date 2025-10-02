@@ -1,5 +1,5 @@
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'package:flutter/material.dart';
 
 class MarkerCustomIconPage extends StatefulWidget {
@@ -21,9 +21,7 @@ class _BodyState extends State<MarkerCustomIconPage> {
     if (_hasInitMarker) {
       return;
     }
-    Marker marker = Marker(
-        position: markerPosition,
-        icon: BitmapDescriptor.fromIconPath(_iconPath));
+    Marker marker = Marker(position: markerPosition, icon: BitmapDescriptor.fromIconPath(_iconPath));
     setState(() {
       _hasInitMarker = true;
       _currentMarkerId = marker.id;
@@ -35,8 +33,7 @@ class _BodyState extends State<MarkerCustomIconPage> {
     Marker marker = _initMarkerMap[_currentMarkerId]!;
     setState(() {
       _iconPath = _iconPath == _startIconPath ? _endIconPath : _startIconPath;
-      _initMarkerMap[_currentMarkerId!] =
-          marker.copyWith(iconParam: BitmapDescriptor.fromIconPath(_iconPath));
+      _initMarkerMap[_currentMarkerId!] = marker.copyWith(iconParam: BitmapDescriptor.fromIconPath(_iconPath));
     });
   }
 
@@ -44,8 +41,7 @@ class _BodyState extends State<MarkerCustomIconPage> {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+        shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
         //文字颜色
         foregroundColor: WidgetStateProperty.all(Colors.white),
         //水波纹颜色

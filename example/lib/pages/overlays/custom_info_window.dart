@@ -4,7 +4,7 @@ import 'package:amap_map_example/widgets/amap_switch_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'dart:math';
 
 /// 自定义[InfoWindow]用例
@@ -32,16 +32,14 @@ class _State extends State<CustomInfoWindowDemoPage> {
 
   void _add() {
     final int markerCount = _markers.length;
-    LatLng markPostion = LatLng(
-        mapCenter.latitude + sin(markerCount * pi / 12.0) / 20.0,
+    LatLng markPostion = LatLng(mapCenter.latitude + sin(markerCount * pi / 12.0) / 20.0,
         mapCenter.longitude + cos(markerCount * pi / 12.0) / 20.0);
     final Marker marker = Marker(
       position: markPostion,
       icon: _markerIcon!,
       infoWindow: InfoWindow(title: '第 $markerCount 个Marker'),
       onTap: (String markerId) => _onMarkerTapped(markerId),
-      onDragEnd: (String markerId, LatLng endPosition) =>
-          _onMarkerDragEnd(markerId, endPosition),
+      onDragEnd: (String markerId, LatLng endPosition) => _onMarkerDragEnd(markerId, endPosition),
     );
 
     setState(() {
@@ -216,25 +214,19 @@ class _State extends State<CustomInfoWindowDemoPage> {
                             child: const Text('添加'),
                           ),
                           TextButton(
-                            onPressed:
-                                (selectedMarkerId == null) ? null : _remove,
+                            onPressed: (selectedMarkerId == null) ? null : _remove,
                             child: const Text('移除'),
                           ),
                           TextButton(
-                            onPressed:
-                                (selectedMarkerId == null) ? null : _changeInfo,
+                            onPressed: (selectedMarkerId == null) ? null : _changeInfo,
                             child: const Text('更新InfoWidow'),
                           ),
                           TextButton(
-                            onPressed: (selectedMarkerId == null)
-                                ? null
-                                : _changeAnchor,
+                            onPressed: (selectedMarkerId == null) ? null : _changeAnchor,
                             child: const Text('修改锚点'),
                           ),
                           TextButton(
-                            onPressed: (selectedMarkerId == null)
-                                ? null
-                                : _changeAlpha,
+                            onPressed: (selectedMarkerId == null) ? null : _changeAlpha,
                             child: const Text('修改透明度'),
                           ),
                         ],
@@ -247,28 +239,20 @@ class _State extends State<CustomInfoWindowDemoPage> {
                           ),
                           AMapSwitchButton(
                             label: const Text('允许拖动'),
-                            onSwitchChanged: (selectedMarkerId == null)
-                                ? null
-                                : _toggleDraggable,
+                            onSwitchChanged: (selectedMarkerId == null) ? null : _toggleDraggable,
                             defaultValue: false,
                           ),
                           AMapSwitchButton(
                             label: const Text('显示'),
-                            onSwitchChanged: (selectedMarkerId == null)
-                                ? null
-                                : _toggleVisible,
+                            onSwitchChanged: (selectedMarkerId == null) ? null : _toggleVisible,
                             defaultValue: true,
                           ),
                           TextButton(
-                            onPressed: (selectedMarkerId == null)
-                                ? null
-                                : _changePosition,
+                            onPressed: (selectedMarkerId == null) ? null : _changePosition,
                             child: const Text('修改坐标'),
                           ),
                           TextButton(
-                            onPressed: (selectedMarkerId == null)
-                                ? null
-                                : _changeRotation,
+                            onPressed: (selectedMarkerId == null) ? null : _changeRotation,
                             child: const Text('修改旋转角度'),
                           ),
                         ],

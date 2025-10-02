@@ -2,7 +2,7 @@ import 'package:amap_map_example/widgets/amap_switch_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 
 class PolygonDemoPage extends StatefulWidget {
   const PolygonDemoPage();
@@ -78,8 +78,7 @@ class _State extends State<PolygonDemoPage> {
       }
       //有选中的Polygon
       setState(() {
-        _polygons[selectedPolygonId!] =
-            selectedPolygon.copyWith(strokeWidthParam: currentWidth);
+        _polygons[selectedPolygonId!] = selectedPolygon.copyWith(strokeWidthParam: currentWidth);
       });
     } else {
       print('无选中的Polygon，无法修改宽度');
@@ -132,8 +131,7 @@ class _State extends State<PolygonDemoPage> {
   @override
   Widget build(BuildContext context) {
     final AMapWidget map = AMapWidget(
-      initialCameraPosition:
-          const CameraPosition(target: LatLng(39.828809, 116.360364), zoom: 13),
+      initialCameraPosition: const CameraPosition(target: LatLng(39.828809, 116.360364), zoom: 13),
       onMapCreated: _onMapCreated,
       polygons: Set<Polygon>.of(_polygons.values),
     );
@@ -163,14 +161,11 @@ class _State extends State<PolygonDemoPage> {
                             child: const Text('添加'),
                           ),
                           TextButton(
-                            onPressed:
-                                (selectedPolygonId == null) ? null : _remove,
+                            onPressed: (selectedPolygonId == null) ? null : _remove,
                             child: const Text('删除'),
                           ),
                           TextButton(
-                            onPressed: (selectedPolygonId == null)
-                                ? null
-                                : _changeStrokeWidth,
+                            onPressed: (selectedPolygonId == null) ? null : _changeStrokeWidth,
                             child: const Text('修改边框宽度'),
                           ),
                         ],
@@ -178,22 +173,16 @@ class _State extends State<PolygonDemoPage> {
                       Column(
                         children: <Widget>[
                           TextButton(
-                            onPressed: (selectedPolygonId == null)
-                                ? null
-                                : _changeColors,
+                            onPressed: (selectedPolygonId == null) ? null : _changeColors,
                             child: const Text('修改边框和填充色'),
                           ),
                           AMapSwitchButton(
                             label: const Text('显示'),
-                            onSwitchChanged: (selectedPolygonId == null)
-                                ? null
-                                : _toggleVisible,
+                            onSwitchChanged: (selectedPolygonId == null) ? null : _toggleVisible,
                             defaultValue: true,
                           ),
                           TextButton(
-                            onPressed: (selectedPolygonId == null)
-                                ? null
-                                : _changePoints,
+                            onPressed: (selectedPolygonId == null) ? null : _changePoints,
                             child: const Text('修改坐标'),
                           ),
                         ],

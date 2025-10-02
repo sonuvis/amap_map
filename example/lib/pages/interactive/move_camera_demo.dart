@@ -1,5 +1,5 @@
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/amap_flutter_base.dart';
 import 'package:amap_map_example/widgets/amap_gridview.dart';
 import 'package:flutter/material.dart';
 
@@ -50,8 +50,7 @@ class _BodyState extends State<MoveCameraDemoPage> {
           children: [
             ConstrainedBox(
               constraints: BoxConstraints(
-                  minWidth: MediaQuery.of(context).size.width,
-                  minHeight: MediaQuery.of(context).size.height * 0.7),
+                  minWidth: MediaQuery.of(context).size.width, minHeight: MediaQuery.of(context).size.height * 0.7),
               child: Stack(
                 children: [
                   SizedBox(
@@ -183,9 +182,7 @@ class _BodyState extends State<MoveCameraDemoPage> {
   void _changeLatLngBounds() {
     _mapController?.moveCamera(
       CameraUpdate.newLatLngBounds(
-          LatLngBounds(
-              southwest: const LatLng(33.789925, 104.838326),
-              northeast: const LatLng(38.740688, 114.647472)),
+          LatLngBounds(southwest: const LatLng(33.789925, 104.838326), northeast: const LatLng(38.740688, 114.647472)),
           15.0),
       animated: true,
     );
@@ -204,8 +201,7 @@ class _BodyState extends State<MoveCameraDemoPage> {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+        shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
         //文字颜色
         foregroundColor: WidgetStateProperty.all(Colors.white),
         //水波纹颜色
