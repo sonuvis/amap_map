@@ -12,7 +12,7 @@
 
 import 'dart:async';
 
-import 'package:x_amap_base/amap_flutter_base.dart';
+import 'package:x_amap_base/x_amap_base.dart';
 import 'package:amap_map/src/core/amap_flutter_platform.dart';
 import 'package:amap_map/src/types/types.dart';
 import 'package:flutter/cupertino.dart';

@@ -6,7 +6,7 @@ import 'dart:async' show Future;
 import 'dart:typed_data' show Uint8List;
 import 'dart:ui';
 
-import 'package:x_amap_base/amap_flutter_base.dart';
+import 'package:x_amap_base/x_amap_base.dart';
 import 'package:flutter/material.dart' show ImageConfiguration, AssetImage, AssetBundleImageKey;
 import 'package:flutter/services.dart' show AssetBundle;
 

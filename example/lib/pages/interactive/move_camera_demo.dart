@@ -1,5 +1,5 @@
 import 'package:amap_map/amap_map.dart';
-import 'package:x_amap_base/amap_flutter_base.dart';
+import 'package:x_amap_base/x_amap_base.dart';
 import 'package:amap_map_example/widgets/amap_gridview.dart';
 import 'package:flutter/material.dart';
 

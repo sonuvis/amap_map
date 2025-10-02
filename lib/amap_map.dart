@@ -15,8 +15,8 @@ library;
 
 import 'dart:async';
 
-// import 'package:x_amap_base/amap_flutter_base.dart';
-import 'package:x_amap_base/amap_flutter_base.dart';
+// import 'package:x_amap_base/x_amap_base.dart';
+import 'package:x_amap_base/x_amap_base.dart';
 import 'package:amap_map/src/core/amap_flutter_platform.dart';
 import 'package:amap_map/src/core/map_event.dart';
 import 'package:amap_map/src/core/method_channel_amap_map.dart';

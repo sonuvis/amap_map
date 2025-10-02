@@ -5,7 +5,7 @@
 import 'package:amap_map/src/compatibility/color_extensions.dart';
 import 'package:flutter/foundation.dart' show listEquals;
 import 'package:flutter/material.dart' show Color;
-import 'package:x_amap_base/amap_flutter_base.dart';
+import 'package:x_amap_base/x_amap_base.dart';
 import 'base_overlay.dart';
 import 'polyline.dart';
 

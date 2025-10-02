@@ -1,4 +1,4 @@
-import 'package:x_amap_base/amap_flutter_base.dart';
+import 'package:x_amap_base/x_amap_base.dart';
 
 /// 相机位置，包含可视区域的位置参数。
 class CameraPosition {
