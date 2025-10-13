@@ -20,7 +20,7 @@ rootProject.allprojects {
         google()
         mavenCentral()
         flatDir { 
-            dirs "$projectDir/lib" 
+            dirs pluginDir 
         }
     }
 }
