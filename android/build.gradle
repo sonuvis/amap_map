@@ -1,3 +1,5 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 group 'com.amap.flutter.map'
 version '1.0'
 
@@ -22,8 +24,6 @@ rootProject.allprojects {
         }
     }
 }
-
-apply plugin: 'com.android.library'
 
 android {
     if (project.android.hasProperty('namespace')) { 
