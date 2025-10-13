@@ -5,11 +5,9 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://a.amap.com/maven' }
     }
 
     dependencies {
-        // classpath 'com.android.tools.build:gradle:3.5.4'
         classpath 'com.android.tools.build:gradle:8.0.2' // 최신 Flutter 호환
     }
 }
@@ -18,12 +16,6 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
-        // AMap 공식 Maven
-        maven { url 'https://a.amap.com/maven' }
-        // 중국 미러 (필요 시)
-        maven { url 'https://maven.aliyun.com/repository/public' }
-        // JitPack (forked plugin 있을 경우)
-        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -45,7 +37,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.amap.api:3dmap:10.2.0'
+    implementation 'com.amap.api:3dmap:10.1.400'
     implementation 'com.amap.api:location:6.4.9'
     implementation 'com.amap.api:search:9.7.4'
     implementation 'androidx.annotation:annotation:1.9.1'
