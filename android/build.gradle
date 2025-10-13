@@ -6,7 +6,7 @@ buildscript {
         google()
         mavenCentral()
         flatDir {
-            dirs "$projectDir/lib"
+            dirs "lib"
         }
     }
 
@@ -21,7 +21,7 @@ rootProject.allprojects {
         google()
         mavenCentral()
         flatDir {
-            dirs "$projectDir/lib"
+            dirs "lib"
         }
     }
 }
