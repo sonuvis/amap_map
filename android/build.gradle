@@ -1,4 +1,3 @@
-apply plugin: 'com.android.library'
 group 'com.amap.flutter.map'
 version '1.0'
 
@@ -19,7 +18,7 @@ rootProject.allprojects {
         google()
         mavenCentral()
         flatDir {
-            dirs 'libs'
+            dirs "$projectDir/libs"
         }
     }
 }
