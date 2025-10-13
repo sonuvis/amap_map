@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 group 'com.amap.flutter.map'
 version '1.0'
 
@@ -38,20 +37,10 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
-
-    flavorDimensions "default"
-    productFlavors {
-        batcamprod {}
-        batcamdev {}
-        batcamcnprod {}
-        batcamcndev {}
-        sonavuprod {}
-        sonavudev {}
-    }
 }
 
 dependencies {
-    batcamcnprodImplementation 'com.amap.api:3dmap-location-search:10.1.200_loc6.4.9_sea9.7.4'
+    implementation 'com.amap.api:3dmap-location-search:10.1.200_loc6.4.9_sea9.7.4'
     // batcamcnprodImplementation(name:'AMap3DMap_10.1.500_AMapSearch_9.7.4_AMapLocation_6.5.0_20250814', ext:'aar')
     implementation 'androidx.annotation:annotation:1.9.1'
 }
