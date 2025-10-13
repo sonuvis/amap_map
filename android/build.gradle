@@ -5,9 +5,11 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/public' }
     }
 
     dependencies {
+        // classpath 'com.android.tools.build:gradle:3.5.4'
         classpath 'com.android.tools.build:gradle:8.0.2' // 최신 Flutter 호환
     }
 }
@@ -16,6 +18,8 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://jitpack.io' } // forked plugin이 있을 경우
     }
 }
 
@@ -37,7 +41,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.amap.api:3dmap-location-search:10.1.300_loc6.4.9_sea9.7.4'
+    implementation 'com.amap.api:3dmap:10.2.0'
+    implementation 'com.amap.api:location:6.4.9'
+    implementation 'com.amap.api:search:9.7.4'
     implementation 'androidx.annotation:annotation:1.9.1'
 }
 
