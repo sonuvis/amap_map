@@ -17,9 +17,6 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
-        flatDir {
-            dirs 'lib' // plugin lib 폴더
-        }
     }
 }
 
