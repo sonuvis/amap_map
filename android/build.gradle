@@ -41,8 +41,18 @@ android {
 
     flavorDimensions "default"
     productFlavors {
-        batcamprod {}
-        batcamcnprod {}
+       batcamprod {
+        }
+        batcamdev {
+        }
+        batcamcnprod {
+        }
+        batcamcndev {
+        }
+        sonavuprod {
+        }   
+        sonavudev {
+        }
     }
 }
 
