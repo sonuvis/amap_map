@@ -16,6 +16,12 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+        // AMap 공식 Maven
+        maven { url 'https://a.amap.com/maven' }
+        // 중국 미러 (필요 시)
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        // JitPack (forked plugin 있을 경우)
+        maven { url 'https://jitpack.io' }
     }
 }
 
