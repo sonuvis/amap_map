@@ -20,7 +20,7 @@ rootProject.allprojects {
         google()
         mavenCentral()
         flatDir { 
-            dirs pluginDir 
+            dirs "/Users/sindbad/Desktop/Sonuvis/amap_map/android/lib"
         }
     }
 }
