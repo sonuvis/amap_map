@@ -5,10 +5,12 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://a.amap.com/maven' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.4'
+        // classpath 'com.android.tools.build:gradle:3.5.4'
+        classpath 'com.android.tools.build:gradle:8.0.2' // 최신 Flutter 호환
     }
 }
 
