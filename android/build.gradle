@@ -1,3 +1,4 @@
+apply plugin: 'com.android.library'
 group 'com.amap.flutter.map'
 version '1.0'
 
@@ -5,7 +6,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://maven.aliyun.com/repository/public' }
     }
 
     dependencies {
@@ -18,8 +18,9 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://jitpack.io' } // forked plugin이 있을 경우
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
 
@@ -41,9 +42,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.amap.api:3dmap:10.2.0'
-    implementation 'com.amap.api:location:6.4.9'
-    implementation 'com.amap.api:search:9.7.4'
+    implementation(name:'AMap3DMap_10.1.500_AMapSearch_9.7.4_AMapLocation_6.5.0_20250814', ext:'aar')
     implementation 'androidx.annotation:annotation:1.9.1'
 }
 
