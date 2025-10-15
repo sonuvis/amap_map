@@ -28,6 +28,7 @@ public class AMapFlutterMapPlugin implements
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
+        AppContextHolder.init(binding.getApplicationContext());
         LogUtil.i(CLASS_NAME, "onAttachedToEngine==>");
         this.pluginBinding = binding;
         binding
