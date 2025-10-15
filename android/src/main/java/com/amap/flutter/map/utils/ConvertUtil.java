@@ -395,6 +395,16 @@ public class ConvertUtil {
 
     public static BitmapDescriptor toBitmapDescriptor(Object o) {
         final List<?> data = toList(o);
+        if (flutterLoader == null) {
+            // 안전 초기화 (임시 방편)
+            flutterLoader = new FlutterLoader();
+            try {
+                flutterLoader.startInitialization(AppContextHolder.get()); // context 필요
+                flutterLoader.ensureInitializationComplete(AppContextHolder.get(), null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         switch (toString(data.get(0))) {
             case "defaultMarker":
                 if (data.size() == 1) {
